@@ -1,0 +1,15 @@
+class Node :
+    def __init__(self, data) :
+        self.data = data
+        self.next = None
+
+def findNode(head, n) :
+    count=0
+    while head:
+       
+        if head.data == n:
+            return count
+        head = head.next
+        count+=1
+    return -1
+        
