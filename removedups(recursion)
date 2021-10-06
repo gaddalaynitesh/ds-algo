@@ -1,0 +1,11 @@
+def removeConsecutiveDuplicates(str):
+    if len(str)==1:
+        return str[0]
+    elif str[0]==str[1]:
+        return removeConsecutiveDuplicates(str[1:])
+    else:
+        return str[0]+removeConsecutiveDuplicates(str[1:])
+
+# Main
+string = input().strip()
+print(removeConsecutiveDuplicates(string))
