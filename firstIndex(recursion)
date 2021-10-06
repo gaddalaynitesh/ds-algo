@@ -1,0 +1,16 @@
+def firstIndex(arr, x,count):
+    if len(arr)==0:
+        return -1
+    elif arr[0]==x:
+        return count
+    count = count+1
+    return firstIndex(arr[1:], x,count)
+
+# Main
+from sys import setrecursionlimit
+setrecursionlimit(11000)
+n=int(input())
+arr=list(int(i) for i in input().strip().split(' '))
+x=int(input())
+count = 0
+print(firstIndex(arr, x,count))
