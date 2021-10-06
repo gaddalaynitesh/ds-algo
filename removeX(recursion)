@@ -1,0 +1,13 @@
+def removeCharRecursive(str,X): 
+    if (len(str) == 0):
+        return ""
+     
+    if (str[0] == X):
+        return removeCharRecursive(str[1:], X)
+     
+    return str[0] + removeCharRecursive(str[1:], X)
+
+# Main
+str = input()
+X='x'
+print(removeCharRecursive(str,X))
