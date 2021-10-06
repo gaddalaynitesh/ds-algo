@@ -1,0 +1,10 @@
+a,b = input().split() # input passed in the same line
+a = int(a)
+b = int(b)
+
+def pow(a,b):
+    if a**b == 1:
+        return 1
+    return a*pow(a,b-1)
+
+print(pow(a,b))
