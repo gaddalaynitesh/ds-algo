@@ -1,0 +1,17 @@
+def firstIndex(arr, x,si):
+    l = len(arr)
+    if -(si)==l:
+        return -1
+    elif arr[si]==x:
+        return l-(-si)
+    else:
+        return firstIndex(arr, x,si-1)
+
+# Main
+from sys import setrecursionlimit
+setrecursionlimit(11000)
+n=int(input())
+arr=list(int(i) for i in input().strip().split(' '))
+x=int(input())
+si = -1
+print(firstIndex(arr, x,si))
