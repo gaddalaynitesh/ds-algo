@@ -1,0 +1,9 @@
+def geo(k):
+    if k == 0:
+        return 1
+    else:
+        return 1/(2**k)+geo(k-1)
+
+k = int(input())
+x = geo(k)
+print(format(x,".5f")) 
