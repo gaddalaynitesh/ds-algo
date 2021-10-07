@@ -1,0 +1,22 @@
+def split(arr,ls,rs):
+    if len(arr) == 0:
+        return ls==rs
+    elif arr[0]%5 == 0:
+        ls+=arr[0]
+    elif arr[0]%3 == 0:
+        rs+=arr[0]
+    else:
+        x = ls + arr[0]
+        y = rs+ arr[0]
+        return split(arr[1:],x,rs) or split(arr[1:],ls,y)
+    return split(arr[1:],ls,rs)
+    
+    
+    
+n = input()
+arr = [int(ele) for ele in input().split()]
+ans = split(arr,0,0)
+if ans is True:
+    print('true')
+else:
+    print('false')
