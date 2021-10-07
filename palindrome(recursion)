@@ -1,0 +1,12 @@
+def ct(s,n):
+    if len(n) == 0:
+        return s
+    else:
+        return s+n[-1]+ct(s,n[:-1])
+n = input()
+s = "" 
+x = ct(s,n)
+if x==n:
+    print('true')
+else:
+    print('false')
