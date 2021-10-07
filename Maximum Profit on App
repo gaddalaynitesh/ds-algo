@@ -1,0 +1,8 @@
+def maximumProfit(prices):
+	prices_sorted = sorted(prices, reverse=True)
+	return(max([price * (ind + 1) for ind, price in enumerate(prices_sorted)]))
+
+n = int(input())
+arr = [int(ele) for ele in input().split()]
+ans = maximumProfit(arr)
+print(ans)
