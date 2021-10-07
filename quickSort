@@ -1,0 +1,34 @@
+def quickSort(a, si, ei):
+    if si>=ei:
+        return 
+    pivot_i = partion(a, si, ei)
+    quickSort(a, si, pivot_i-1)
+    quickSort(a, pivot_i+1, ei)
+    
+def partion(a,si,ei):
+    c = 0
+    pivot = arr[si]
+    for i in range(si+1,ei+1):
+        if a[i]<pivot:
+            c = c+1
+    a[si+c],a[si]=a[si],a[si+c]
+    
+    pivot_i=si+c
+    
+    i = si
+    j = ei
+    while i<j:
+        if a[i]<pivot:
+            i = i+1
+        elif a[j]>=pivot:
+            j = j-1
+        else:
+            a[i],a[j]=a[j],a[i]
+            i = i+1
+            j = j-1
+    return pivot_i
+
+n=int(input())
+arr=list(int(i) for i in input().strip().split(' '))
+quickSort(arr, 0, n-1)
+print(*arr)
