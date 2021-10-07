@@ -1,0 +1,14 @@
+def remove(string,sum):
+    l = len(string)
+    if l==0 or l==1:
+        return string
+    if string[0] == string[1]:
+        s = remove(string[1:])
+        return string[0]+'*'+s
+    else:
+        s = remove(string[1:])
+        return string[0]+s
+
+string = input().strip()
+sum = 0
+print(remove(string,sum))
