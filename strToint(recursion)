@@ -1,0 +1,11 @@
+def stringtointeger(s):
+    if len(s) == 1:
+        b = ord(s[0]) - ord('0')
+        return b
+    a = stringtointeger(s[1:])
+    b = ord(s[0]) - ord('0')
+    result = b*pow(10, len(s)-1) + a
+    return int(result)
+
+s = input()
+print(stringtointeger(s))
