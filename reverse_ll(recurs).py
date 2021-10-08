@@ -9,16 +9,41 @@ class Node :
 
 
 
+def reverseLinkedListRec(head) :
+    if head is None or head.next is None:
+        return head
+    shead = reverseLinkedListRec(head.next)
+    cur = shead
+    while cur.next is not None:
+        cur = cur.next
+    cur.next = head
+    head.next = None
+    return shead
 
-def printReverse(head) :
-    #Your code goes here
-    if head is None:
-        return 
-    else:
-        curr = head
-        head = printReverse(head.next)
-        print(curr.data,end = " ")
-        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -47,3 +72,27 @@ def takeInput() :
         i += 1
 
     return head
+
+
+
+
+def printLinkedList(head) :
+
+    while head is not None :
+        print(head.data, end = " ")
+        head = head.next
+
+    print()
+
+
+#main
+t = int(stdin.readline().rstrip())
+
+while t > 0 :
+    
+    head = takeInput()
+
+    newHead = reverseLinkedListRec(head)
+    printLinkedList(newHead)
+
+    t -= 1
