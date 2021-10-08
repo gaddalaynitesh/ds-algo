@@ -1,0 +1,102 @@
+from sys import stdin
+
+#Following is the Node class already written for the Linked List
+class Node :
+    def __init__(self, data) :
+        self.data = data
+        self.next = None
+def length(head):
+    count=0
+    while head is not None:
+        head=head.next
+        count=count+1
+    return count    
+        
+def AppendLast(head,n) :
+    if n==0 or head is None:
+        return head
+    count = length(head) - n
+    i = 1
+    curr = head
+    while(i<count):
+        curr = curr.next
+        i = i+1
+    if curr.next!=None:
+    	head2 = curr.next
+    else:
+        head2 = curr
+    curr.next = None
+    tail = head2
+    while(tail.next!=None):
+        tail = tail.next
+    tail.next = head
+    return head2
+        
+
+def deleteNode(head,pos) :
+    if pos<0 or pos>=length(head):
+        return head
+    prev=None
+    curr=head
+    count=0
+    while count<pos:
+        count=count+1
+        prev=curr
+        curr=curr.next
+    # step=curr.next
+    if prev is None:
+        return head.next
+    prev.next=curr.next
+    return head
+            
+
+
+
+#Taking Input Using Fast I/O
+def takeInput() :
+    head = None
+    tail = None
+
+    datas = list(map(int, stdin.readline().rstrip().split(" ")))
+
+    i = 0
+    while (i < len(datas)) and (datas[i] != -1) :
+        data = datas[i]
+        newNode = Node(data)
+
+        if head is None :
+            head = newNode
+            tail = newNode
+
+        else :
+            tail.next = newNode
+            tail = newNode
+
+        i += 1
+
+    return head
+
+
+
+#to print the linked list 
+def printLinkedList(head) :
+
+    while head is not None :
+        print(head.data, end = " ")
+        head = head.next
+
+    print()
+
+
+#main
+t = int(stdin.readline().strip())
+
+
+while t > 0 :
+    
+    head = takeInput()
+    N= int(stdin.readline().rstrip())
+    head = AppendLast(head,N)
+    printLinkedList(head)
+
+    t -= 1
