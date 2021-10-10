@@ -1,0 +1,41 @@
+from sys import stdin
+
+def checkRedundantBrackets(expression) :
+    arr = []
+    count = 0
+    for i in expression:
+        if i != ")":
+            arr.append(i)
+        else:
+            while arr[-1]!="(":
+                count+=1
+                arr.pop()
+            if count <= 1:
+                return True
+            count = 0
+            arr.pop()
+    return False
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#main
+expression = stdin.readline().strip()
+
+if checkRedundantBrackets(expression) :
+	print("true")
+
+else :
+	print("false")
