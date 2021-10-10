@@ -1,0 +1,58 @@
+from sys import stdin
+
+
+def isBalanced(expression) :
+    x = []
+    for i in expression:
+        if i == "(":
+            x.append('(')
+        elif i == ")":
+            if len(x)==0:
+                return False
+            if x[-1] == "(":
+                x.pop()
+            
+            else:
+                return False
+    if len(x)==0:
+        return True
+            
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+#main
+expression = stdin.readline().strip()
+
+if isBalanced(expression) :
+	print("true")
+
+else :
+	print("false")
