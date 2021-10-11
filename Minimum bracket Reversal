@@ -1,0 +1,56 @@
+from sys import stdin
+
+def countBracketReversals(inputString) :
+    # Your code goes here
+    if len(inputString)%2!=0:
+        return -1
+    count = 0
+    temp = []
+    for i in inputString:
+        if i=="}" and len(temp)!=0 and temp[-1] == "{":
+            temp.pop()
+        else:
+            temp.append(i)
+    while len(temp)!=0:
+        if temp[-1]==temp[-2]:
+            count+=1
+            temp.pop()
+            temp.pop()
+        else:
+            count+=2
+            temp.pop()
+            temp.pop()
+    return count
+            
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#main
+print(countBracketReversals(stdin.readline().strip()))
