@@ -1,0 +1,7 @@
+def rotateLeft(d, arr):
+    while d>0:
+        x=arr[0]
+        arr.pop(0)
+        arr.append(x)
+        d-=1
+    return arr
